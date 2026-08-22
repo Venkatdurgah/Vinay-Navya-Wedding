@@ -59,7 +59,7 @@ export default async function WeddingPage({ params }: Props) {
 
       <section className="section center" id="story">
         <div className="eyebrow">A new chapter</div>
-        <h2>Two hearts.<br />One beautiful beginning.</h2>
+        <h2>Two Hearts.<br />One Beautiful Beginning.</h2>
         <p className="lead">
           With love in their hearts and family by their side, {wedding.bride} and {wedding.groom}{" "}
           invite you to be part of their special celebration.

@@ -7,7 +7,6 @@ export default function WeddingHero({ wedding }: { wedding: Wedding }) {
       <div className="hero-frame" aria-hidden="true" />
       <div className="hero-monogram" aria-hidden="true">V<span>N</span></div>
       <div className="hero-content">
-        <div className="rings" aria-hidden="true"><span /> <span /></div>
         <div className="kicker">Wedding Invitation</div>
         <h1 className="names" id="invitation-title">
           <span>{wedding.bride}</span>
