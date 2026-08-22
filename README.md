@@ -23,6 +23,19 @@ npm start
 
 Set `NEXT_PUBLIC_SITE_URL` to the public origin in Vercel (for example, `https://your-project.vercel.app`). Each slug generates its own `og:title`, `og:description`, `og:image`, `og:url`, and Twitter card values. The OG image is a public 1200x630 route at `/invite/<slug>/opengraph-image`.
 
+Metadata flow for WhatsApp previews:
+
+```mermaid
+flowchart TD
+	A[Invitation URL<br/>/invite/vinay-navya] --> B[generateMetadata]
+	B --> C[Title]
+	B --> D[Description]
+	B --> E[Dynamic OG Image]
+	C --> F[WhatsApp Preview]
+	D --> F
+	E --> F
+```
+
 Social platforms generally cannot fetch a reliable preview from localhost. After deployment, test the public invitation URL with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/), [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/), and the Twitter/X Card Validator when available. Re-scrape the URL after changing metadata.
 
 ## Deploy to Vercel

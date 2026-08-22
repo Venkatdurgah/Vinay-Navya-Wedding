@@ -19,17 +19,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const wedding = weddings[slug];
   if (!wedding) return {};
 
-  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vinaynavywedding.vercel.app").replace(/\/$/, "");
+  const pageUrl = `${base}/invite/${slug}`;
   const og = `${base}/invite/${slug}/opengraph-image`;
 
   return {
+    metadataBase: new URL(base),
     title: wedding.ogTitle,
     description: wedding.ogDescription,
+    alternates: {
+      canonical: pageUrl
+    },
     openGraph: {
       title: wedding.ogTitle,
       description: wedding.ogDescription,
+      siteName: "Wedding Invitation",
       type: "website",
-      url: `${base}/invite/${slug}`,
+      url: pageUrl,
       images: [{ url: og, width: 1200, height: 630, alt: `${wedding.bride} + ${wedding.groom}` }]
     },
     twitter: {
